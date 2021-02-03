@@ -1,0 +1,27 @@
+// colors
+
+$main-bg-color: rgba(
+  $color: #515f67,
+  $alpha: 1,
+);
+$bg-color: rgba(
+  $color: #353f46,
+  $alpha: 0.85,
+);
+
+$primary-color: white;
+$accent-color: rgba(
+  $color: rgb(127, 191, 219),
+  $alpha: 1,
+);
+$active-color: rgba(
+  $color: #4bcaff,
+  $alpha: 1,
+);
+
+// fonts
+$font-size-big: 30px;
+$font-size-medium: 24px;
+$font-size-primary: 14px;
+
+$primary-font: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;

@@ -1,0 +1,8 @@
+@mixin __heightEqualwidth {
+  &:after {
+    //делает высоту блока, к которому относится, равной его ширине (неожиданно, однако)
+    content: '';
+    padding-top: 100%;
+    display: block;
+  }
+}
