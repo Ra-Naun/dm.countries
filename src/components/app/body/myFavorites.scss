@@ -8,12 +8,17 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: $bshadow;
+  width: 40%;
   flex-grow: 1;
-  font-size: $font-size-big;
-}
 
-@media (max-width: 479.97px) {
-  .my-favorites {
-    margin-left: 0;
+  &__title {
+    margin-bottom: 20px;
+    font-size: $font-size-big;
+  }
+
+  @media (max-width: 479.97px) {
+    & {
+      margin-left: 0;
+    }
   }
 }
