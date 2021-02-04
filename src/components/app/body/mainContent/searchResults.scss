@@ -1,0 +1,11 @@
+@import '../../../../style/SCSS/variables';
+@import '../../../../style/SCSS/mixins.scss';
+
+.search-results {
+  width: 100%;
+  border: 1px solid rgba($accent-color, 0.3);
+  border-radius: 10px;
+  padding: 10px 0;
+  min-height: 100px;
+  font-size: $font-size-primary;
+}

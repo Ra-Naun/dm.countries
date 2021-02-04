@@ -1,0 +1,19 @@
+@import '../../../style/SCSS/variables';
+@import '../../../style/SCSS/mixins.scss';
+
+.my-favorites {
+  margin: 20px 0 0 20px;
+  color: $primary-color;
+  background: $bg-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: $bshadow;
+  flex-grow: 1;
+  font-size: $font-size-big;
+}
+
+@media (max-width: 479.97px) {
+  .my-favorites {
+    margin-left: 0;
+  }
+}

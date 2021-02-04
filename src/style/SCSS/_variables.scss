@@ -1,5 +1,3 @@
-// colors
-
 $main-bg-color: rgba(
   $color: #515f67,
   $alpha: 1,
@@ -19,9 +17,11 @@ $active-color: rgba(
   $alpha: 1,
 );
 
+$bshadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
 // fonts
-$font-size-big: 30px;
-$font-size-medium: 24px;
+$font-size-big: 20px;
+$font-size-medium: 18px;
 $font-size-primary: 14px;
 
-$primary-font: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+$primary-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
