@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { selectedCountryReducer } from './selectedCountry';
 import { searchedCountriesReducer } from './searchedCountries';
-import { favoriteCountriesReducer } from './FavoriteCountries';
+import { favoriteCountriesReducer } from './favoriteCountries';
 
-export const rootReducer = combineReducers({ selectedCountry: selectedCountryReducer, SearchedCountries: searchedCountriesReducer, FavoriteCountries: favoriteCountriesReducer });
+export const rootReducer = combineReducers({ selectedCountry: selectedCountryReducer, searchedCountries: searchedCountriesReducer, favoriteCountries: favoriteCountriesReducer });

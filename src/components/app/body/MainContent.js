@@ -2,11 +2,11 @@ import CountryInformationContainer from '../../../containers/CountryInformationC
 import SearchResults from './mainContent/SearchResults';
 import './mainContent.scss';
 
-const MainContent = ({ selectedCountry }) => {
+const MainContent = () => {
   return (
     <div className='main-content'>
       <p className='main-content__title title'>Main content:</p>
-      {selectedCountry && <CountryInformationContainer selectedCountry={selectedCountry} />}
+      <CountryInformationContainer />
       <SearchResults />
     </div>
   );
