@@ -8,4 +8,18 @@
   padding: 10px;
   min-height: 100px;
   font-size: $font-size-medium;
+
+  &__fetching {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__countries {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,22 @@
+.country-short-info {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+
+  :nth-child(n) {
+    padding-right: 10px;
+  }
+
+  :last-child {
+    padding-right: 0;
+  }
+
+  &__num {
+  }
+
+  &__flag {
+  }
+
+  &__name {
+  }
+}

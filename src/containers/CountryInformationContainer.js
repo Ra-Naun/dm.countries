@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import CountryInformation from '../components/app/body/mainContent/CountryInformation';
 import { setSelectedCountryByCode, resetSelectedCountry } from '../actions/selectedCountryActions';
 
-const BodyContainer = ({ selectedCountry }) => {
+const CountryInformationContainer = ({ selectedCountry }) => {
   return selectedCountry.code ? <CountryInformation selectedCountry={selectedCountry} /> : null;
 };
 
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => ({
   resetSelectedCountry: () => dispatch(resetSelectedCountry()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BodyContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CountryInformationContainer);

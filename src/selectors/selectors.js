@@ -29,4 +29,5 @@ export function getFavCountries(state) {
 export function isFavorite(state, code) {
   const isExist = state.favoriteCountries.includes(code);
   return isExist;
+  //don't add reselect!
 }
