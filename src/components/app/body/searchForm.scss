@@ -3,6 +3,13 @@
 
 .search-form {
   display: flex;
+
+  &__checkboxes {
+    display: flex;
+    label {
+      margin-left: 20px;
+    }
+  }
 }
 
 .search-countries {
@@ -12,7 +19,6 @@
 
 .wrapper {
   width: 100%;
-  height: 50px;
   background: $bg-color;
   text-align: center;
   line-height: 45px;

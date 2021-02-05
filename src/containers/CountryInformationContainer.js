@@ -1,14 +1,16 @@
 import { connect } from 'react-redux';
 import CountryInformation from '../components/app/body/mainContent/CountryInformation';
 import { setSelectedCountryByCode, resetSelectedCountry } from '../actions/selectedCountryActions';
+import { getSelectedCountry } from '../selectors/selectors';
 
-const CountryInformationContainer = ({ selectedCountry }) => {
-  return selectedCountry.code ? <CountryInformation selectedCountry={selectedCountry} /> : null;
+const CountryInformationContainer = ({ selectedCountry, setSelectedCountryByCode, resetSelectedCountry, shouldComponentUpdate }) => {
+  return selectedCountry?.code ? <CountryInformation selectedCountry={selectedCountry} setSelectedCountryByCode={setSelectedCountryByCode} resetSelectedCountry={resetSelectedCountry} /> : null;
 };
 
 const mapStateToProps = (state /*, ownProps*/) => {
   return {
-    selectedCountry: state.selectedCountry,
+    selectedCountry: getSelectedCountry(state),
+    shouldComponentUpdate: state.countriesCache,
   };
 };
 

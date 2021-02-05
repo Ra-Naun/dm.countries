@@ -8,3 +8,5 @@ export const RESET_SELECTED_COUNTRY = '@@selectedCountry/RESET_SELECTED_COUNTRY'
 
 export const PUSH_FAVORITE_COUNTRY = '@@FavoriteCountries/PUSH_FAVORITE_COUNTRY';
 export const REMOVE_FAVORITE_COUNTRY = '@@FavoriteCountries/REMOVE_FAVORITE_COUNTRY';
+
+export const UPDATE_CACHE = '@@CountriesCach/UPDATE_CACHE';

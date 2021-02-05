@@ -1,15 +1,26 @@
-export async function getCountryByCode(state, code) {
-  const cachedCountry = state.searchedCountries.filter((country) => country.code === code)[0];
+import { fetchContries } from '../actions/utility';
+
+export function getCountryByCode(state, code) {
+  const cachedCountry = state.countriesCache.filter((country) => country.code === code)[0];
+
   if (cachedCountry) return cachedCountry;
 
-  return null; //тут нужно сделать fetch
+  return { code, needLoaded: true };
 }
 
 export function getSelectedCountry(state) {
   const { code } = state.selectedCountry;
-  const isExist = code ? false : true;
-  if (isExist) return getCountryByCode(state, code);
-  else return null;
+  const isExist = code ? true : false;
+  if (isExist) {
+    const country = getCountryByCode(state, code);
+
+    const borders = country.border_countries.map((border) => {
+      return getCountryByCode(state, border.code || border);
+    });
+
+    country.border_countries = borders;
+    return country;
+  } else return null;
 }
 
 export function getFavCountries(state) {
@@ -24,6 +35,12 @@ export function getFavCountries(state) {
     }
   });
   return favCountries;
+}
+export function searchedCountries(state) {
+  const countryCodes = state.searchedCountries.countries;
+  const countries = { ...state.searchedCountries };
+  countries.countries = countryCodes.map((country) => getCountryByCode(state, country.code));
+  return countries;
 }
 
 export function isFavorite(state, code) {

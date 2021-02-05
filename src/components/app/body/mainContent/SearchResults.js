@@ -1,33 +1,43 @@
 import './searchResults.scss';
-import CountryShortInfo from '../CountryShortInfo';
 import Spinner from '../../../Spinner';
+import CountryShortInfoContainer from '../../../../containers/CountryShortInfoContainer';
+import { useEffect } from 'react';
 
-const SearchResults = ({ searchedCountries, setSelectedCountryByCode, resetSelectedCountry }) => {
+const SearchResults = ({ searchedCountries, setSelectedCountryByCode, resetSelectedCountry, clearSearchResults }) => {
   const { isFetching, error, countries } = searchedCountries;
 
-  const templateCountries = searchedCountries ? (
+  useEffect(() => {
+    if (countries.length !== 1) resetSelectedCountry();
+  }, [isFetching]);
+
+  const templateCountries = (
     <ol className='search-results__countries'>
       {countries.map((country, index) => (
-        <CountryShortInfo key={country.code} country={country} index={index} />
+        <CountryShortInfoContainer key={country.code} country={country} index={index} setSelectedCountryByCode={setSelectedCountryByCode} />
       ))}
     </ol>
-  ) : null;
+  );
 
   const templateError = (
     <>
-      <p class='search-results__error'>{error}</p>
+      <p className='search-results__error'>{error}</p>
     </>
   );
 
   const templateFetching = (
     <>
-      <div class='search-results__fetching'>
+      <div className='search-results__fetching'>
         <Spinner />
       </div>
     </>
   );
 
   const renderTemplate = isFetching ? templateFetching : error ? templateError : templateCountries;
+
+  if (countries.length === 1) {
+    setSelectedCountryByCode(countries[0].code);
+    clearSearchResults();
+  }
 
   return (
     <div className='search-results'>

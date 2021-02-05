@@ -1,25 +1,32 @@
 import './countryInformation.scss';
-import CountryShortInfo from '../CountryShortInfo';
+import CountryShortInfoContainer from '../../../../containers/CountryShortInfoContainer';
 
-const CountryInformation = ({ country }) => {
-  const { flag_src, name, code, lang, border_countries_arr } = country;
-
+const CountryInformation = ({ selectedCountry, setSelectedCountryByCode, resetSelectedCountry }) => {
+  const { flag, name, code, languages, border_countries } = selectedCountry;
+  console.log('||| languages: ', languages);
   const template_country = (
     <>
-      <img className='country-information__flag' src={flag_src} alt='flag' />
+      <img height='15px' className='country-information__flag' src={flag} alt='flag' />
       <p className='country-information__name'>{name}</p>
-      <p className='country-information__name'>{code}</p>
-      <p className='country-information__name'>{lang}</p>
+      <p className='country-information__code'>{`ISO 3166-1 alpha-3:  ${code}`}</p>
+
+      <ol className='country-information__languages'>
+        Языки:
+        {languages.map((lang) => (
+          <li key={lang.name} className='country-information__lang'>
+            {`• ${lang.name}`}
+          </li>
+        ))}
+      </ol>
+
       <details className='border-countries'>
-        <summary>Cписок граничных стран</summary>
-        {border_countries_arr?.map((country, index) => {
-          return (
-            <>
-              <p className='border-countries__num'>#{index + 1}</p>
-              <CountryShortInfo country={country} />
-            </>
-          );
-        })}
+        <summary className='border-countries__summary'>Cписок граничных стран {`[${border_countries.length}]`}</summary>
+        <ol className='border-countries_list'>
+          {border_countries.map((country, index) => {
+            const key = country.name || country.code;
+            return <CountryShortInfoContainer key={key} country={country} index={index} setSelectedCountryByCode={setSelectedCountryByCode} isClear={true} />;
+          })}
+        </ol>
       </details>
     </>
   );

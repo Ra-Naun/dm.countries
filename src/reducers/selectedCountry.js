@@ -7,9 +7,9 @@ const initialState = {
 export const selectedCountryReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SELECTED_COUNTRY:
-      return { ...state, code: action.payload };
+      return { code: action.payload };
     case RESET_SELECTED_COUNTRY:
-      return { ...state, ...initialState };
+      return initialState;
     default:
       return state;
   }

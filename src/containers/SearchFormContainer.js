@@ -7,7 +7,7 @@ const SearchFormContainer = ({ search }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  search: (requestText) => dispatch(searchCountries(requestText)),
+  search: (requestText, filters) => dispatch(searchCountries(requestText, filters)),
 });
 
 export default connect(null, mapDispatchToProps)(SearchFormContainer);
