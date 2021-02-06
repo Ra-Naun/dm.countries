@@ -6,7 +6,7 @@ const MyFavorites = ({ favCountries, setSelectedCountryByCode, pushToFavorite, r
   const [isLoadedFavContries, setIsLoadedFavContries] = useState(false);
 
   useEffect(() => {
-    const cachedFavContries = localStorage.getItem('favCountries').split(',');
+    const cachedFavContries = localStorage.getItem('favCountries')?.split(',') || [];
     const isEmpty = cachedFavContries[0]?.length === 0;
     if (!isEmpty) {
       cachedFavContries.forEach((country) => {
