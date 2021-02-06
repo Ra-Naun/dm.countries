@@ -4,7 +4,9 @@ import { setSelectedCountryByCode, resetSelectedCountry } from '../actions/selec
 import { getSelectedCountry } from '../selectors/selectors';
 
 const CountryInformationContainer = ({ selectedCountry, setSelectedCountryByCode, resetSelectedCountry, shouldComponentUpdate }) => {
-  return selectedCountry?.code ? <CountryInformation selectedCountry={selectedCountry} setSelectedCountryByCode={setSelectedCountryByCode} resetSelectedCountry={resetSelectedCountry} /> : null;
+  let isVisible = selectedCountry?.code ? true : false;
+
+  return isVisible && <CountryInformation selectedCountry={selectedCountry} setSelectedCountryByCode={setSelectedCountryByCode} resetSelectedCountry={resetSelectedCountry} />;
 };
 
 const mapStateToProps = (state /*, ownProps*/) => {

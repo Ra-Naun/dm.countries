@@ -1,5 +1,4 @@
 import CountryInformationContainer from '../../../containers/CountryInformationContainer';
-
 import './mainContent.scss';
 import SearchResultsContainer from '../../../containers/SearchResultsContainer';
 

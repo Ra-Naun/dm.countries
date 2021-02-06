@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import SearchResults from '../components/app/body/mainContent/SearchResults';
 import { setSelectedCountryByCode, resetSelectedCountry } from '../actions/selectedCountryActions';
 import { searchedCountries } from '../selectors/selectors';
-import { LoadCountriesSuccess } from '../actions/searchedCountriesActions';
+import { clearResults } from '../actions/searchedCountriesActions';
+import { useEffect } from 'react';
 
 const SearchResultsContainer = ({ searchedCountries, setSelectedCountryByCode, resetSelectedCountry, clearSearchResults }) => {
   const { isFetching, error, countries } = searchedCountries;
-  const showSearchResults = countries.length || error || isFetching;
+  let showSearchResults = countries.length || error || isFetching;
 
   return (
     showSearchResults && (
@@ -24,7 +25,7 @@ const mapStateToProps = (state /*, ownProps*/) => {
 const mapDispatchToProps = (dispatch) => ({
   setSelectedCountryByCode: (code) => dispatch(setSelectedCountryByCode(code)),
   resetSelectedCountry: () => dispatch(resetSelectedCountry()),
-  clearSearchResults: () => dispatch(LoadCountriesSuccess([])),
+  clearSearchResults: () => dispatch(clearResults()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResultsContainer);

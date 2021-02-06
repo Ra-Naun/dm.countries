@@ -1,16 +1,17 @@
 import SearchFormContainer from '../../containers/SearchFormContainer';
 import MainContent from './body/MainContent';
 import './body.scss';
-import MyFavorites from './body/MyFavorites';
+import MyFavoritesContainer from '../../containers/MyFavoritesContainer';
+import MainContentContainer from '../../containers/MainContentContainer';
 
 const Body = () => {
   return (
     <main className='body container'>
       <div className='search-block'>
         <SearchFormContainer />
-        <MainContent />
+        <MainContentContainer />
       </div>
-      <MyFavorites />
+      <MyFavoritesContainer />
     </main>
   );
 };

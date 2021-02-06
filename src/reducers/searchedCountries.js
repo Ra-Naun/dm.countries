@@ -1,4 +1,4 @@
-import { COUNTRIES_REQUEST, COUNTRIES_SUCCESS, COUNTRIES_FAIL } from '../actions/actionTypes';
+import { COUNTRIES_REQUEST, COUNTRIES_SUCCESS, COUNTRIES_FAIL, CLEAR_RESULTS } from '../actions/actionTypes';
 
 const initialState = {
   countries: [],
@@ -18,6 +18,8 @@ export const searchedCountriesReducer = (state = initialState, action) => {
       return { ...state, countries: action.payload, isFetching: false, error: '' };
     case COUNTRIES_FAIL:
       return { ...state, countries: [], isFetching: false, error: action.payload };
+    case CLEAR_RESULTS:
+      return { ...state, countries: [], isFetching: false, error: '' };
     default:
       return state;
   }

@@ -17,6 +17,18 @@
     justify-content: center;
   }
 
+  &__wrapper-error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__error {
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+
   &__countries {
     list-style: none;
     display: flex;

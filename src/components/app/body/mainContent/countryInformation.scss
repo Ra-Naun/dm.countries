@@ -12,9 +12,17 @@
   padding: 10px;
   min-height: 100px;
   font-size: $font-size-primary;
-
+  position: relative;
   :nth-child(n) {
     margin-left: 10px;
+  }
+
+  &__favorite {
+    font-size: $font-size-big;
+    color: $active-color;
+    position: absolute;
+    top: 15px;
+    right: 15px;
   }
 
   &__title {
@@ -24,27 +32,44 @@
 
   &__languages {
     width: 100%;
-    margin-top: 20px;
+    margin: 20px 10px 0 10px;
     display: flex;
-    padding: 10px 10px 10px 0;
     list-style: none;
+    flex-wrap: wrap;
+    border: 1px solid rgba($main-bg-color, 0.5);
+    border-radius: 5px;
+    padding-bottom: 10px;
+    :nth-child(n) {
+      padding-top: 10px;
+    }
+  }
+
+  &__languages-title {
+    text-decoration: underline;
   }
 
   .border-countries {
-    margin-top: 20px;
     width: 100%;
     border: 1px solid rgba($main-bg-color, 0.5);
     border-radius: 10px;
     padding: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    padding-right: 30px;
+    margin: 20px 10px 10px;
+
+    @media (min-width: 991.98px) {
+      & {
+        padding: 10px;
+      }
+    }
 
     &_list {
       display: flex;
       width: 100%;
       flex-direction: column;
       justify-content: center;
+      :nth-child(n) {
+        margin-left: 0;
+      }
     }
 
     &__summary {

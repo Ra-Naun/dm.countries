@@ -1,4 +1,5 @@
 import logo from '../../assets/imgs/logo.svg';
+import './header.scss';
 
 const Header = () => {
   return (

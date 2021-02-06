@@ -1,5 +1,3 @@
-import { fetchContries } from '../actions/utility';
-
 export function getCountryByCode(state, code) {
   const cachedCountry = state.countriesCache.filter((country) => country.code === code)[0];
 
@@ -27,13 +25,14 @@ export function getFavCountries(state) {
   const favCountriesOnlyCode = state.favoriteCountries;
   const favCountries = [];
 
-  [].forEach.call(favCountriesOnlyCode, (code) => {
-    const isExist = code ? false : true;
+  [].forEach.call(favCountriesOnlyCode, (country) => {
+    const isExist = country.code ? true : false;
     if (isExist) {
-      const country = getCountryByCode(state, code);
-      favCountries.push(country);
+      const CountryFullInfo = getCountryByCode(state, country.code);
+      favCountries.push(CountryFullInfo);
     }
   });
+
   return favCountries;
 }
 export function searchedCountries(state) {
@@ -44,7 +43,9 @@ export function searchedCountries(state) {
 }
 
 export function isFavorite(state, code) {
-  const isExist = state.favoriteCountries.includes(code);
+  let isExist = false;
+  state.favoriteCountries.forEach((country) => {
+    if (country.code === code) isExist = true;
+  });
   return isExist;
-  //don't add reselect!
 }

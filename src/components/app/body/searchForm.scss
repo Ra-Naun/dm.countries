@@ -3,71 +3,61 @@
 
 .search-form {
   display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+
+  border-radius: 5px;
+  background: $bg-color;
+  box-shadow: $bshadow;
+  margin: 20px 0 20px 0;
+
+  &__request {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  &__input {
+    width: 100%;
+    color: $primary-color;
+    background-color: transparent;
+    outline: none;
+    border: transparent;
+    padding: 0 10px;
+    margin-right: 10px;
+    border-bottom: 2px solid $primary-color;
+    transition: all 0.8s ease;
+    &::placeholder {
+      color: $primary-color;
+      font-weight: 100;
+      opacity: 0.5;
+    }
+  }
+  .isError {
+    border-bottom: 2px solid red;
+  }
+
+  &__search-btn {
+    min-width: 20px;
+    background-color: transparent;
+    outline: none;
+    border: transparent;
+    cursor: pointer;
+    @include __icon('../../assets/imgs/search-solid.svg');
+  }
 
   &__checkboxes {
     display: flex;
+    align-items: start;
+    justify-content: start;
+    margin-top: 10px;
     label {
       margin-left: 20px;
     }
+    @media (max-width: 575.98px) {
+      & {
+        font-size: $font-size-primary;
+      }
+    }
   }
-}
-
-.search-countries {
-  width: 100%;
-  margin: 20px 0;
-}
-
-.wrapper {
-  width: 100%;
-  background: $bg-color;
-  text-align: center;
-  line-height: 45px;
-  padding-right: 50px;
-  border-radius: 5px;
-  position: relative;
-  box-shadow: $bshadow;
-  & .fa {
-    color: $primary-color;
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: $font-size-medium;
-    cursor: pointer;
-  }
-}
-
-.fa-search {
-  display: inline-block;
-  @include __icon('../../assets/imgs/search-solid.svg');
-}
-
-.input {
-  border: 0px;
-  border-bottom: 2px solid $primary-color;
-  background: transparent;
-  padding: 5px 0 5px 5px;
-  outline: none;
-  color: $primary-color;
-  font-weight: bold;
-  width: 98%;
-  transition: all 0.8s ease;
-}
-
-.isError {
-  border: 1px solid red;
-}
-
-.SF-search-btn {
-  background-color: transparent;
-  outline: none;
-  border: transparent;
-}
-
-.btn {
-  cursor: pointer;
-}
-
-input::placeholder {
-  color: $primary-color;
-  font-weight: 100;
 }

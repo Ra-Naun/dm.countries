@@ -1,8 +1,25 @@
+@import '../../../style/SCSS/variables';
+@import '../../../style/SCSS/mixins.scss';
+
 .country-short-info {
   width: 100%;
   display: flex;
+  justify-content: center;
+  position: relative;
+  flex-direction: column;
   padding: 10px;
-  cursor: pointer;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 991.98px) {
+    & {
+      padding: 10px 0;
+      font-size: $font-size-primary;
+    }
+  }
 
   :nth-child(n) {
     padding-right: 10px;
@@ -12,12 +29,39 @@
     padding-right: 0;
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
   &__num {
+    min-width: 40px;
   }
 
   &__flag {
   }
 
   &__name {
+    margin-right: 5px;
   }
+
+  &__favorite {
+    position: absolute;
+    right: 20px;
+    color: $active-color;
+    cursor: pointer;
+
+    @media (max-width: 991.98px) {
+      & {
+        right: 0;
+      }
+    }
+  }
+}
+
+.short-country-hr {
+  margin-top: 5px;
+  opacity: 0.3;
+  width: 100%;
 }

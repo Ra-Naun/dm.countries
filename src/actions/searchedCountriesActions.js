@@ -1,5 +1,6 @@
-import { COUNTRIES_REQUEST, COUNTRIES_SUCCESS, COUNTRIES_FAIL, SET_FILTERS } from './actionTypes';
+import { COUNTRIES_REQUEST, COUNTRIES_SUCCESS, COUNTRIES_FAIL, SET_FILTERS, CLEAR_RESULTS } from './actionTypes';
 import { fetchContries, getOnlyUniqCountries, getStructuredListOfCountries, getSortedListOfCountries } from './utility';
+import { URLByCode, URLByName } from '../utils/API_Fetch';
 import ActionsFactory from './ActionFactory';
 import { updateCoutriesCach } from './CountriesCachActions';
 
@@ -7,6 +8,7 @@ const LoadCountriesRequest = ActionsFactory(COUNTRIES_REQUEST);
 export const LoadCountriesSuccess = ActionsFactory(COUNTRIES_SUCCESS);
 const LoadCountriesFail = ActionsFactory(COUNTRIES_FAIL);
 export const setFilters = ActionsFactory(SET_FILTERS);
+export const clearResults = ActionsFactory(CLEAR_RESULTS);
 
 export const searchCountries = (requestText, filters) => {
   return async (dispatch) => {
@@ -30,11 +32,9 @@ export const searchCountries = (requestText, filters) => {
 export const loadContries = async (requestText, filters) => {
   let countries = [];
 
-  const URLByCode = 'https://restcountries.eu/rest/v2/alpha/';
   const countriesByCode = filters.byCode && (await fetchContries(URLByCode, requestText));
   countries = [...countries, ...(countriesByCode || [])];
 
-  const URLByName = 'https://restcountries.eu/rest/v2/name/';
   const countriesByName = filters.byName && (await fetchContries(URLByName, requestText));
   countries = [...countries, ...(countriesByName[0] || [])];
 

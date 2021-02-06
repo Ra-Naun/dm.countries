@@ -19,9 +19,9 @@ const SearchResults = ({ searchedCountries, setSelectedCountryByCode, resetSelec
   );
 
   const templateError = (
-    <>
+    <div className='search-results__wrapper-error'>
       <p className='search-results__error'>{error}</p>
-    </>
+    </div>
   );
 
   const templateFetching = (
@@ -41,7 +41,7 @@ const SearchResults = ({ searchedCountries, setSelectedCountryByCode, resetSelec
 
   return (
     <div className='search-results'>
-      <p className='search-results__title title'>Search results {'[' + countries.length + ']'}:</p>
+      <p className='search-results__title title'>🔎 Search results {'[' + countries.length + ']'}:</p>
 
       {renderTemplate}
     </div>

@@ -2,6 +2,7 @@ export const COUNTRIES_REQUEST = '@@SearchedCountries/COUNTRIES_REQUEST';
 export const COUNTRIES_SUCCESS = '@@SearchedCountries/COUNTRIES_SUCCESS';
 export const COUNTRIES_FAIL = '@@SearchedCountries/COUNTRIES_FAIL';
 export const SET_FILTERS = '@@SearchedCountries/SET_FILTERS';
+export const CLEAR_RESULTS = '@@SearchedCountries/CLEAR_RESULTS';
 
 export const SET_SELECTED_COUNTRY = '@@selectedCountry/SET_SELECTED_COUNTRY';
 export const RESET_SELECTED_COUNTRY = '@@selectedCountry/RESET_SELECTED_COUNTRY';

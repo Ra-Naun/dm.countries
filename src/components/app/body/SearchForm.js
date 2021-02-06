@@ -7,7 +7,6 @@ import CheckBox from '../searchForm/CheckBox';
 const SearchForm = ({ search, classes, role }) => {
   const [searchText, setSearchText] = useState('');
   const [isError, setIsError] = useState(false);
-  const inputRef = useRef(null);
   const [filters, setFilters] = useState({
     byName: true,
     byCode: true,
@@ -40,10 +39,9 @@ const SearchForm = ({ search, classes, role }) => {
 
   return (
     <form action='' className={'search-form ' + classes}>
-      <div className='wrapper'>
+      <div className='search-form__request'>
         <input
-          className={`input ${classNames({ isError })}`}
-          ref={inputRef}
+          className={`search-form__input ${isError && 'isError'}`}
           type='search'
           id='search-country'
           name='q'
@@ -52,14 +50,12 @@ const SearchForm = ({ search, classes, role }) => {
           aria-label={role}
           onChange={handleOnChange}
         ></input>
-        <button className='SF-search-btn btn' title='search...' onClick={searchhBtnClick}>
-          <i className='fa fa-search' aria-hidden='true'></i>
-        </button>
+        <button className='search-form__search-btn' title='search...' onClick={searchhBtnClick}></button>
+      </div>
 
-        <div className='search-form__checkboxes'>
-          <CheckBox isChecked={filters.byName} filterID='byName' toggleChecked={toggleChecked} title='By name' />
-          <CheckBox isChecked={filters.byCode} filterID='byCode' toggleChecked={toggleChecked} title='By code' />
-        </div>
+      <div className='search-form__checkboxes'>
+        <CheckBox isChecked={filters.byName} filterID='byName' toggleChecked={toggleChecked} title='By name' />
+        <CheckBox isChecked={filters.byCode} filterID='byCode' toggleChecked={toggleChecked} title='By code' />
       </div>
     </form>
   );
