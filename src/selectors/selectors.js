@@ -1,5 +1,5 @@
 export function getCountryByCode(state, code) {
-  const cachedCountry = state.countriesCache.filter((country) => country.code === code)[0];
+  const cachedCountry = state.countriesCache.find((country) => country.code === code);
 
   if (cachedCountry) return cachedCountry;
 
